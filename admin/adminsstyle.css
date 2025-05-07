@@ -1,0 +1,323 @@
+/*======================== FONTS ===========================================*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap');
+
+/*=================== BASE ====================================*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+
+body{
+    width: 100%;
+    background: #E5E7E8;
+    position: relative;
+    display: flex;
+}
+
+/*======================== DASHBOARD MENU ==========*/
+.menu{
+    background: #111827;
+    width: 300px;
+    height: 100%;
+    position: fixed;
+    top:0;
+    left: -300px;  /* Initially hide the sidebar */
+    transition: 0.3s ease; /* Smooth transition when toggling */
+}
+
+.menu .logo{
+    display: flex;
+    align-items:center;
+    color: #fff;
+    padding: 30px 0 0 30px;
+}
+.menu .logo img{
+    width: 50px;
+}
+
+.menu .items{
+    margin-top:40px;
+}
+
+.menu .items li{
+    list-style: none;
+    padding: 15px 0;
+}
+
+.menu .items li:hover{
+    background-color: #253047;
+    cursor: pointer;
+}
+
+.menu .items li:nth-child(1){
+    border-left: 4px solid #fff;
+}
+
+.menu .items li i{
+    color: rgb(134,141,151);
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 14px;
+    margin: 0 10px 0 25px;
+}
+
+.menu .items li:hover i,
+.menu .items li:hover a{
+  color: #f3f4f6;
+}
+.menu .items li a{
+    text-decoration: none;
+    color: rgb(134,141,151);
+    font-weight: 300px;
+    transition: 0.3s ease;
+}
+
+.interface{
+    width: 100%;
+    margin-left: 0;
+    position: relative;
+    transition: margin-left 0.3s ease; /* Smooth transition for the interface */
+}
+
+.interface .navigation{
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 15px 30px;
+    border-bottom: 3px solid #594ef7;
+    height: 70px;
+    position: fixed;
+    width: 100%;  /* Full width when the sidebar is hidden */
+}
+
+#menu-btn{
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.i-name{
+    color: #444a53;
+    padding: 30px 30px 0 30px;
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 70px;
+}
+
+.values{
+    padding: 30px 30px 0 30px;
+}
+
+.values .val-box{
+    background: #fff;
+    padding: 16px 28px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/*==================== ADMIN TABLE ======================*/
+.admin_title{
+    margin-top: 1rem;
+}
+.board{
+    width: 95%;
+    margin: 30px 0 30px 30px;
+    overflow: auto;
+    background: #fff;
+    border-radius: 8px;
+}
+
+.board th{
+    padding: 30px 0 30px 30px;
+    text-align: center;
+}
+.board td{
+    padding: 10px 0 20px 30px;
+    font-size: 13px;
+    font-weight: 400;
+    text-align: center;
+}
+.board button{
+    border: none;
+}
+table{
+    border-collapse: collapse;
+}
+
+tr{
+    border-bottom: 1px solid #eef0f3;
+}
+
+thead th{
+    font-size: 14px;
+    text-transform: uppercase;
+}
+table tr:nth-child(even) {
+    background-color: #f2f2f2; /* Light gray background for even rows */
+}
+        .board td .update{
+            width: 2rem;
+            height: 2rem;
+        background-color: black;
+        border-radius: 30%;
+        border: none;
+        color: white;
+        }
+          .board td .delete_submit
+          {
+            width: 2rem;
+            height: 2rem;
+        background-color: red;
+        border-radius: 30%;
+        border: none;
+        color: white;
+    }
+
+/*============================== RESPONSIVENESS ===================*/
+
+/* For medium screens (tablet or small laptop) */
+/* @media (max-width:980px){
+    .board{
+        width: 92%;
+        padding: 0 15px;
+        overflow-x: auto;
+    }
+} */
+
+/* For small screens (mobile devices) */
+@media (max-width:1800px){
+    .menu{
+        width: 270px;
+        position: fixed;
+        left: -270px; /* Initially hide sidebar */
+    }
+    .menu.active{
+        left: 0px; /* Show sidebar when active */
+    }
+    .interface{
+        width: 100%; /* Full width when sidebar is hidden */
+        margin-left: 0px;
+    }
+
+    .menu.active~ .interface{
+        margin-left: 270px; /* Adjust width when sidebar is visible */
+    }
+    .interface .navigation{
+        width: 100%;
+    }
+    .values{
+        width: 100%;
+        padding: 30px 30px 0 30px;
+    }
+    .board{
+        width: 90%;
+        padding: 0 15px;
+        overflow-x: auto;
+    }
+    table{
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    /* Make the "Add Admin" button with fixed width on small screens */
+    .values .val-box button {
+        width: auto; /* Make the button have an appropriate width */
+        max-width: 180px; /* Limit the width of the button */
+        margin-top: 10px; /* Ensure the button is spaced well */
+        padding: 12px 15px;
+    }
+    .board td .delete_submit{
+        background-color: red;
+        border: none;
+    }
+}
+
+/* For very small screens (phones in portrait mode) */
+@media(max-width:477px){
+    .interface{
+        width: 100%;
+        margin-left: 0px;
+        display: inline-block;
+    }
+    .interface .navigation{
+        padding: 15px ;
+        width: 100%; /* Full width navigation */
+        margin-left: 0px; /* No margin */
+    }
+    .i-name{
+        padding: 30px 15px 0 15px;
+    }
+    .values{
+        padding: 15px 15px 0 15px;
+    }
+    .values .val-box{
+        width: 100%;
+        margin: 8px 0;
+    }
+    .board{
+        margin: 0 15px 30px 15px; /* Add margin to the right for a small space */
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    /* Allow horizontal scrolling of the table */
+    .board {
+        overflow-x: auto;
+    }
+
+    /* Adjust button size */
+    .values .val-box button {
+        max-width: 150px; /* Slightly smaller max-width */
+    }
+    .board .delete_submit{
+        margin-bottom: 0.2rem;
+    }
+}
+
+/* For very small screens (580px width or below) */
+@media(max-width:580px){
+   
+    .values .val-box{
+        flex-direction: column; /* Stack button and content vertically */
+        align-items: flex-start; /* Align content to the left */
+        padding: 10px 15px;
+        margin-top: 15px;
+    }
+    .values .val-box button {
+        margin-top: 15px;
+        width: 100%; /* Make button span full width */
+        max-width: 100%; /* Ensure button takes the full width of the parent */
+        padding: 12px 15px;
+    }
+    .board{
+        width: 90%;
+        margin-top: 4rem;
+        padding: 1rem 1rem;
+    }
+}
+
+/* Extra adjustments for the sidebar (ensure it functions properly with the new design) */
+@media(max-width: 769px){
+    .menu{
+        width: 270px;
+        position: fixed;
+        left: -270px; /* Initially hide sidebar */
+    }
+
+    .menu.active{
+        left: 0px; /* Show sidebar when active */
+    }
+
+
+    .navigation{
+        width: 100%;
+    }
+    .menu.active ~ .interface{
+        margin-left: 270px; /* Adjust interface when sidebar is visible */
+    }
+}
